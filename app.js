@@ -11,6 +11,7 @@ app.use(express.static("public"));
 var nodeSchema = new mongoose.Schema({
     node_id: Number,
     name: String,
+    city: String,
     address: String,
     descr: String,
     contacts: {
@@ -35,7 +36,7 @@ var nodeSchema = new mongoose.Schema({
 var Node = mongoose.model("Node", nodeSchema);
 
 app.get("/", function(req, res){
-    res.render("landing")
+    res.render("landing");
 });
 
 app.get("/nodes", function(req, res){
@@ -62,6 +63,7 @@ app.post("/nodes", function(req, res){
             let newNode = {
                 node_id: id,
                 name: req.body.name, 
+                city: req.body.city,
                 address: req.body.address,
                 descr: descr,
                 contacts: {
@@ -70,7 +72,7 @@ app.post("/nodes", function(req, res){
                     company: req.body.company,
                     email: req.body.email,
                     position: req.body.position,
-                    city: req.body.city,
+                    city: req.body.cont_city,
                     address: req.body.cont_address
                 },
                 equip: {
@@ -115,14 +117,28 @@ app.post("/edit/:id", function(req, res) {
     } else {
         var descr = req.body.descr;
     }
-    var updatedNode = {
+    let updatedNode = {
+        node_id: id,
         name: req.body.name, 
+        city: req.body.city,
         address: req.body.address,
         descr: descr,
         contacts: {
             full_name: req.body.full_name,
             t_number: req.body.t_number,
-            company: req.body.company
+            company: req.body.company,
+            email: req.body.email,
+            position: req.body.position,
+            city: req.body.cont_city,
+            address: req.body.cont_address
+        },
+        equip: {
+            ip: req.body.ip,
+            name: req.body.eq_name,
+            dns1: req.body.dns1,
+            dns2: req.body.dns2,
+            mask: req.body.mask,
+            gw: req.body.gw
         }
     };
     Node.update({node_id: id}, updatedNode, function(err, node){

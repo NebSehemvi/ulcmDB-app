@@ -6,12 +6,12 @@
 	<div class="row show-grid">
 	  <div class="col-sm-12 block-main">
 		Узел: <%- data.name %>
-		<a title="изменить" class="btn-noclass" style="right: 50px;" href="/edit/<%= data.node_id %>"><span class="glyphicon glyphicon-pencil"></span></a>
-		<form action="/delete/<%= data.node_id %>" method="POST"><button title="удалить" style="right: 10px;" class="btn-noclass glyphicon glyphicon-remove"></button></form>
+		<a title="изменить" class="btn-noclass" style="right: 100px;" href="/edit/<%= data.node_id %>"><span class="glyphicon glyphicon-pencil"></span> Изменить</a>
+		<form action="/delete/<%= data.node_id %>" method="POST"><button style="right: 10px;" class="btn-noclass"><span class=" glyphicon glyphicon-remove"></span> Удалить</button></form>
 		<div class="row">
-		  <div class="col-12 col-sm-4">Город: </div>
+		  <div class="col-12 col-sm-4">Город: <%- data.city %></div>
 		  <div class="col-12 col-sm-8">Адрес: <%- data.address %></div>
-		  <div class="col-12 col-sm-4">Дата вкл.: </div>
+		  <div class="col-12 col-sm-4">Дата вкл.: <%- data.date %></div>
 		</div>
 	  </div>
 	  <div class="col-sm-12 block-details">

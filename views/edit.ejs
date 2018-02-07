@@ -1,33 +1,45 @@
 <% include partials/header %>
-
 <div class="container">
     <div class="row">
-        <h1 style="text-align:center;">Редактировать узел <%= data.name %></h1>
-        <div style="width: 30%; margin: 30px auto;">
+        <h2 style="text-align:center;">Редактировать узел <%= data.name %></h2>
         <form action="/edit/<%= data.node_id %>" method="POST">
+        <div class="cont">
+        	<div class="row show-grid">
+        	  <div class="col-sm-12 block-main">
+        		Узел: <input type="text" name="name" placeholder="название узла" required value="<%- data.name %>">
+        		<div class="row">
+		          <div class="col-12 col-sm-4">Город: <input type="text" name="city" required value="<%= data.city %> "></div>
+        		  <div class="col-12 col-sm-8">Адрес: <input type="text" name="address" required value="<%= data.address %> "></div>
+        		  <div class="col-12 col-sm-4">Дата вкл.: <input type="text" name="date" required value="<%= data.date %> "></div>
+        		</div>
+        	  </div>
+        	  <div class="col-sm-12 block-details">
+        		Оборудование:
+        		<div class="row">
+        		  <div class="col-12 col-sm-6">IP: <input style="width: calc(100% - 5em);" type="text" name="ip" value="<%= data.equip.ip %> "></div>
+        		</div>
+        		<div class="row">
+        		  <div class="col-6 col-xs-6">GW: <input type="text" name="gw" value="<%= data.equip.gw %> "></div>
+        		  <div class="col-6 col-xs-6">DNS1: <input type="text" name="dns1" value="<%= data.equip.dns1 %> "></div>
+        		  <div class="col-6 col-xs-6">Mask: <input type="text" name="mask" value="<%= data.equip.mask %> "></div>
+        		  <div class="col-6 col-xs-6">DNS2: <input type="text" name="dns2" value="<%= data.equip.dns2 %> "></div>
+        		</div>
+        	  </div>
+        	  <div class="col-sm-12 block-contact">
+        		Контактное лицо:
+        		<div class="row">
+        		  <div class="col-8 col-xs-12 col-sm-8">ФИО: <input type="text" name="full_name" value="<%= data.contacts.full_name %> "></div>
+        		  <div class="col-4 col-xs-6 col-sm-4">Телефон: <input type="text" name="t_number" value="<%= data.contacts.t_number %> "></div>
+        		  <div class="col-6 col-xs-6">Компания: <input type="text" name="company" value="<%= data.contacts.company %> "></div>
+        		  <div class="col-6 col-xs-6">Должн.: <input type="text" name="position" value="<%= data.contacts.position %> "></div>
+        		  <div class="col-4 col-xs-6 col-sm-4">Город: <input type="text" name="cont_city" value="<%= data.contacts.city %> "></div>
+        		  <div class="col-8 col-xs-12 col-sm-8">Адрес: <input type="text" name="cont_address" value="<%= data.contacts.address %> "></div>
+        		</div>
+        	  </div>
+        	</div>
+        </div>
             <div class="form-group">
-                <input class="form-control" type="text" name="name" placeholder="ID узла" required disabled value=" id<%= data.node_id %> ">
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" name="name" placeholder="имя узла" required value=" <%= data.name %> ">
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" name="address" placeholder="адрес" required value=" <%= data.address %> ">
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" name="company" placeholder="название компании" required value=" <%= data.contacts.company %> ">
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" name="full_name" placeholder="контактное лицо (ФИО)" required value=" <%= data.contacts.full_name %> ">
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" name="t_number" placeholder="телефонный номер" required value=" <%= data.contacts.t_number %> ">
-            </div>
-            <div class="form-group">
-                <textarea class="form-control" rows="3" name="descr" placeholder="описание"><%= data.descr %></textarea>
-            </div>
-            <div class="form-group">
-                <button class="edit btn btn-lg btn-primary btn-block">Изменить</button>
+                <button style="width: 40%; margin-left: calc((60% - 60px)/2)" class="edit btn btn-lg btn-primary btn-block">Сохранить</button>
             </div>
         </form>
         <form action="/delete/<%= data.node_id %>" method="POST">
@@ -36,7 +48,6 @@
             </div>
         </form>
         <a href="/nodes">&#8592; Назад к списку узлов</a>
-        </div>
     </div>
 </div>
 
