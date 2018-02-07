@@ -1,0 +1,108 @@
+thead tr:first-child{
+    background-color: #2072b5;
+    height: 36px;
+    line-height: 40px;
+    vertical-align: middle;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+tr {
+    height: 30px;
+    line-height: 34px;
+    vertical-align: middle;
+    font-size: 16px;
+    display: table-row;
+}
+
+tr:nth-child(2n+1) {
+    border-top: 1px solid #2072b5;
+}
+
+tr:nth-child(2n) {
+    border: none;
+    height: 60px;
+}
+
+tr:nth-child(2n+1) td:first-child {
+    width: 20%;
+}
+
+.inf {
+    border-left: 1px solid #2072b5 !important;
+    border-right: 1px solid #2072b5 !important;
+}
+.details {
+    border-left: 1px solid #2072b5 !important;
+    border-right: 1px solid #2072b5 !important;
+    border-bottom: 1px solid #2072b5 !important;
+}
+
+tr td:nth-child(3) {
+    position: relative;
+}
+
+tr a {
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    transition: all 0.5s ease;
+}
+
+tr a:hover {
+    color: #e04040;
+}
+
+table .tbl {
+    border-collapse: collapse;
+    border-spacing: 5px;
+    border-bottom: 1px solid #2072b5;
+    display: table;
+    background-color: transparent;
+}
+
+.tbl {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+tr td {
+    padding: 2px 8px;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+tr:nth-last-child(2) {
+    border-bottom: 1px solid #2072b5;
+}
+
+.borderOn {
+    border-bottom: 1px solid white !important;
+}
+
+.dlt {
+    border-radius: 0 5px 5px 0;
+}
+
+.edit {
+    width: calc(100% - 52px);
+    padding-left: 52px;
+    border-radius: 5px 0 0 5px;
+    float: left;
+}
+
+header div {
+    position: relative;
+}
+
+img {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+}

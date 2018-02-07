@@ -1,0 +1,45 @@
+<% include partials/header %>
+<div class="container">
+<h2>Подробная карточка узла <%- data.name %></h2>
+
+<div class="cont">
+	<div class="row show-grid">
+	  <div class="col-sm-12 block-main">
+		Узел: <%- data.name %>
+		<a title="изменить" class="btn-noclass" style="right: 50px;" href="/edit/<%= data.node_id %>"><span class="glyphicon glyphicon-pencil"></span></a>
+		<form action="/delete/<%= data.node_id %>" method="POST"><button title="удалить" style="right: 10px;" class="btn-noclass glyphicon glyphicon-remove"></button></form>
+		<div class="row">
+		  <div class="col-12 col-sm-4">Город: </div>
+		  <div class="col-12 col-sm-8">Адрес: <%- data.address %></div>
+		  <div class="col-12 col-sm-4">Дата вкл.: </div>
+		</div>
+	  </div>
+	  <div class="col-sm-12 block-details">
+		Оборудование:
+		<div class="row">
+		  <div class="col-12 col-sm-6">IP: <%- data.equip.ip %></div>
+		</div>
+		<div class="row">
+		  <div class="col-6 col-xs-6">GW: <%- data.equip.gw %></div>
+		  <div class="col-6 col-xs-6">DNS1: <%- data.equip.dns1 %></div>
+		  <div class="col-6 col-xs-6">Mask: <%- data.equip.mask %></div>
+		  <div class="col-6 col-xs-6">DNS2: <%- data.equip.dns2 %></div>
+		</div>
+	  </div>
+	  <div class="col-sm-12 block-contact">
+		Контактное лицо:
+		<div class="row">
+		  <div class="col-8 col-xs-12 col-sm-8">ФИО: <%= data.contacts.full_name %></div>
+		  <div class="col-4 col-xs-6 col-sm-4">Тел.: <%= data.contacts.t_number %></div>
+		  <div class="col-6 col-xs-6">Компания: <%= data.contacts.company %></div>
+		  <div class="col-6 col-xs-6">Должн.: <%= data.contacts.position %></div>
+		  <div class="col-4 col-xs-6 col-sm-4">Город: <%= data.contacts.city %></div>
+		  <div class="col-8 col-xs-12 col-sm-8">Адрес: <%= data.contacts.address %></div>
+		</div>
+	  </div>
+	</div>
+</div>
+
+<a href="/nodes">&#8592; Назад к списку узлов</a>
+</div>
+<% include partials/footer %>

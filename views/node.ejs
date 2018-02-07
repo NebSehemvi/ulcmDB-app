@@ -1,0 +1,69 @@
+<% include partials/header %>
+
+<div class="container">
+<header class="jumbotron">
+    <div class="container">
+    <h1>Узлы компании ЮЛ-ком</h1>
+        <a class="btn btn-primary btn-lg" href="/nodes/new">Добавить новый узел</a>
+    </div>
+</header>
+
+<% data.forEach(function(item){ %>
+<div class="cont">
+	<div class="row show-grid">
+	  <div class="col-sm-12 block-main">
+		Узел: <%- item.name %>
+		<a title="подробнее" class="btn-noclass" style="right: 60px;" href="/details/<%= item.node_id %>"><span class="glyphicon glyphicon-minus-sign"></span></a>
+		<a title="изменить" class="btn-noclass" style="right: 40px;" href="/edit/<%= item.node_id %>"><span class="glyphicon glyphicon-pencil"></span></a>
+		<form action="/delete/<%= item.node_id %>" method="POST"><button title="удалить" style="right: 10px;" class="btn-noclass glyphicon glyphicon-remove"></button></form>
+		<div class="row">
+		  <div class="col-12 col-sm-4">Город: </div>
+		  <div class="col-12 col-sm-8">Адрес: <%- item.address %></div>
+		  <div class="col-12 col-sm-4">Дата вкл.: </div>
+		</div>
+	  </div>
+	  <div class="col-sm-12 block-details hid">
+		Оборудование:
+		<div class="row">
+		  <div class="col-12 col-sm-6">IP: </div>
+		</div>
+		<div class="row">
+		  <div class="col-6 col-xs-6">GW: </div>
+		  <div class="col-6 col-xs-6">DNS1: </div>
+		  <div class="col-6 col-xs-6">Mask: </div>
+		  <div class="col-6 col-xs-6">DNS2: </div>
+		</div>
+	  </div>
+	</div>
+</div>
+<% }); %>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+    var details = $(".block-details");
+    var main = $(".block-main");
+    var btnTxt = $(".text");
+    
+    $("a").on("click", function(event){
+        event.stopPropagation();
+    });
+    
+    $("button").on("click", function(event){
+        event.stopPropagation();
+        //event.preventDefault();
+    });
+    
+    $(main).on("click", function() {
+        var ind = $(main).index(this);
+        $(details[ind]).toggleClass("hid");
+    })
+    
+    $(details).on("click", function(){
+        var ind = $(details).index(this);
+        $(this).toggleClass("hid");
+    });
+</script>
+<% include partials/footer %>

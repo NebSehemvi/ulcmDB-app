@@ -1,0 +1,35 @@
+<% include partials/header %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align:center;">Добавить новый узел</h1>
+        <div style="width: 30%; margin: 30px auto;">
+        <form action="/nodes" method="POST">
+            <div class="form-group">
+                <input class="form-control" type="text" name="name" placeholder="название узла" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="address" placeholder="адрес" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="company" placeholder="название компании" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="full_name" placeholder="контактное лицо (ФИО)" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="t_number" placeholder="телефонный номер" required>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" rows="3" name="descr" placeholder="описание"></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Добавить</button>
+            </div>
+        </form>
+        <a href="/nodes">&#8592; Назад к списку узлов</a>
+        </div>
+    </div>
+</div>
+
+<% include partials/footer %>

@@ -1,0 +1,43 @@
+<% include partials/header %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align:center;">Редактировать узел <%= data.name %></h1>
+        <div style="width: 30%; margin: 30px auto;">
+        <form action="/edit/<%= data.node_id %>" method="POST">
+            <div class="form-group">
+                <input class="form-control" type="text" name="name" placeholder="ID узла" required disabled value=" id<%= data.node_id %> ">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="name" placeholder="имя узла" required value=" <%= data.name %> ">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="address" placeholder="адрес" required value=" <%= data.address %> ">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="company" placeholder="название компании" required value=" <%= data.contacts.company %> ">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="full_name" placeholder="контактное лицо (ФИО)" required value=" <%= data.contacts.full_name %> ">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="t_number" placeholder="телефонный номер" required value=" <%= data.contacts.t_number %> ">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" rows="3" name="descr" placeholder="описание"><%= data.descr %></textarea>
+            </div>
+            <div class="form-group">
+                <button class="edit btn btn-lg btn-primary btn-block">Изменить</button>
+            </div>
+        </form>
+        <form action="/delete/<%= data.node_id %>" method="POST">
+            <div class="form-group">
+                <button class="dlt btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+            </div>
+        </form>
+        <a href="/nodes">&#8592; Назад к списку узлов</a>
+        </div>
+    </div>
+</div>
+
+<% include partials/footer %>
