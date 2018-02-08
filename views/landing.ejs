@@ -1,7 +1,49 @@
 <% include partials/header %>
 
-<h1> Узлы </h1>
-
-<a href="/nodes">Посмотреть узлы</a>
+<div class="cont landing">
+	<div class="row show-grid">
+	  <div class="col-12 col-sm-12">
+	        Блок пользователя
+	        <div class="row">
+	          <div class="col-6 col-sm-6 col-md-4">
+	                <i class="glyphicon glyphicon-globe"></i>
+	                <h2> Узлы </h2>
+                    <a href="/nodes">Посмотреть узлы</a>
+	          </div>
+	          <div class="col-6 col-sm-6 col-md-4">
+	                <i class="glyphicon glyphicon-user"></i>
+	                <h2> Профиль </h2>
+                    <a href="/profile">Посмотреть профиль</a>
+	          </div>
+	          <div class="col-6 col-sm-6 col-md-4">
+	                <i class="glyphicon glyphicon-flash"></i>
+	                <h2> Обновления </h2>
+                    <a href="/feed">Посмотреть последние изменения</a>
+              </div>
+            </div>
+            Блок администратора
+            <div class="row">
+	          <div class="col-6 col-sm-6 col-md-4">
+	                <i class="glyphicon glyphicon-home"></i>
+	                <h2> Города </h2>
+                    <a href="/adm/cities">Добавить или удалить город</a>
+	          </div>
+	          <div class="col-6 col-sm-6 col-md-4">
+	              	<i class="glyphicon glyphicon-user">
+	              	    <i class="glyphicon glyphicon-user"></i>
+	              	    <i class="glyphicon glyphicon-user"></i>
+	              	</i>
+	                <h2> Пользователи </h2>
+                    <a href="/adm/users">Управление пользователями</a>
+	          </div>
+	          <div class="col-6 col-sm-6 col-md-4">
+	                <i class="glyphicon glyphicon-trash"></i>
+	                <h2> Удаленные записи </h2>
+                    <a href="/adm/moderate">Модерация удаленных записей</a>
+	          </div>
+	       </div>
+	  </div>
+	</div>
+</div>
 
 <% include partials/footer %>

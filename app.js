@@ -14,6 +14,7 @@ var nodeSchema = new mongoose.Schema({
     city: String,
     address: String,
     descr: String,
+    date: String,
     contacts: {
         full_name: String,
         t_number: String,
@@ -36,7 +37,7 @@ var nodeSchema = new mongoose.Schema({
 var Node = mongoose.model("Node", nodeSchema);
 
 app.get("/", function(req, res){
-    res.render("landing");
+    res.render("landing")
 });
 
 app.get("/nodes", function(req, res){
@@ -50,11 +51,6 @@ app.get("/nodes", function(req, res){
 });
 
 app.post("/nodes", function(req, res){
-    if(req.body.descr == "") {
-        var descr = "—";
-    } else {
-        var descr = req.body.descr;
-    }
     Node.find({}).limit(1).sort({node_id: -1}).exec(function(err, node){
         var id = node[0].node_id + 1;
         if (err) {
@@ -65,7 +61,8 @@ app.post("/nodes", function(req, res){
                 name: req.body.name, 
                 city: req.body.city,
                 address: req.body.address,
-                descr: descr,
+                date: req.body.date,
+                descr: req.body.descr,
                 contacts: {
                     full_name: req.body.full_name,
                     t_number: req.body.t_number,
@@ -112,17 +109,13 @@ app.get("/edit/:id", function(req, res) {
 
 app.post("/edit/:id", function(req, res) {
     let id = req.params.id;
-    if(req.body.descr == "") {
-        var descr = "—";
-    } else {
-        var descr = req.body.descr;
-    }
     let updatedNode = {
         node_id: id,
         name: req.body.name, 
         city: req.body.city,
         address: req.body.address,
-        descr: descr,
+        descr: req.body.descr,
+        date: req.body.date,
         contacts: {
             full_name: req.body.full_name,
             t_number: req.body.t_number,

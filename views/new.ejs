@@ -2,33 +2,56 @@
 
 <div class="container">
     <div class="row">
-        <h1 style="text-align:center;">Добавить новый узел</h1>
-        <div style="width: 30%; margin: 30px auto;">
+        <a href="/nodes">&#8592; Назад к списку узлов</a>
+        <h2 style="text-align:center;">Новый узел</h2>
         <form action="/nodes" method="POST">
+        <div class="cont">
+        	<div class="row show-grid">
+        	  <div class="col-sm-12 block-main">
+        		Узел: <input type="text" name="name" placeholder="название узла" required>
+        		<div class="row">
+		          <div class="col-12 col-md-4">Город: <input type="text" name="city" required></div>
+        		  <div class="col-12 col-md-8">Адрес: <input type="text" name="address" required></div>
+        		  <div class="col-12 col-md-4">Дата вкл.: <input type="date" name="date"></div>
+        		</div>
+        	  </div>
+        	  <div class="col-sm-12 block-details">
+        		Оборудование:
+        		<div class="row">
+        		  <div class="col-12 col-sm-6">IP: <input type="text" name="ip"></div>
+        		  <div class="col-12 col-sm-6">Имя: <input type="text" name="eq_name"></div>
+        		</div>
+        		<div class="row">
+        		  <div class="col-6 col-xs-6">GW: <input type="text" name="gw"></div>
+        		  <div class="col-6 col-xs-6">DNS1: <input type="text" name="dns1"></div>
+        		  <div class="col-6 col-xs-6">Mask: <input type="text" name="mask"></div>
+        		  <div class="col-6 col-xs-6">DNS2: <input type="text" name="dns2"></div>
+        		</div>
+        	  </div>
+        	  <div class="col-sm-12 block-contact">
+        		Контактное лицо:
+        		<div class="row">
+        		  <div class="col-8 col-xs-12 col-sm-8">ФИО: <input type="text" name="full_name"></div>
+        		  <div class="col-4 col-xs-6 col-sm-4">Телефон: <input type="text" name="t_number"></div>
+        		  <div class="col-6 col-xs-6">Компания: <input type="text" name="company"></div>
+        		  <div class="col-6 col-xs-6">Должн.: <input type="text" name="position"></div>
+        		  <div class="col-4 col-xs-6 col-sm-4">Город: <input type="text" name="cont_city"></div>
+        		  <div class="col-8 col-xs-12 col-sm-8">Адрес: <input type="text" name="cont_address"></div>
+        		</div>
+        	  </div>
+    	      <div class="col-sm-12 block-description">
+	              Примечания:
+	               <div class="row">
+	                  <textarea name="descr"></textarea>
+	              </div>
+	          </div>    
+        	</div>
+        </div>
             <div class="form-group">
-                <input class="form-control" type="text" name="name" placeholder="название узла" required>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" name="address" placeholder="адрес" required>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" name="company" placeholder="название компании" required>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" name="full_name" placeholder="контактное лицо (ФИО)" required>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" name="t_number" placeholder="телефонный номер" required>
-            </div>
-            <div class="form-group">
-                <textarea class="form-control" rows="3" name="descr" placeholder="описание"></textarea>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-lg btn-primary btn-block">Добавить</button>
+                <button style="width: 40%; margin: 0 auto;" class="btn btn-lg btn-primary btn-block">Добавить</button>
             </div>
         </form>
         <a href="/nodes">&#8592; Назад к списку узлов</a>
-        </div>
     </div>
 </div>
 

@@ -1,5 +1,6 @@
 <% include partials/header %>
 <div class="container">
+<a href="/nodes">&#8592; Назад к списку узлов</a>
 <h2>Подробная карточка узла <%- data.name %></h2>
 
 <div class="cont">
@@ -7,7 +8,7 @@
 	  <div class="col-sm-12 block-main">
 		Узел: <%- data.name %>
 		<a title="изменить" class="btn-noclass" style="right: 100px;" href="/edit/<%= data.node_id %>"><span class="glyphicon glyphicon-pencil"></span> Изменить</a>
-		<form action="/delete/<%= data.node_id %>" method="POST"><button style="right: 10px;" class="btn-noclass"><span class=" glyphicon glyphicon-remove"></span> Удалить</button></form>
+		<form action="/delete/<%= data.node_id %>" method="POST"><button style="right: 10px;" class="btn-noclass"><span class=" glyphicon glyphicon-trash"></span> Удалить</button></form>
 		<div class="row">
 		  <div class="col-12 col-sm-4">Город: <%- data.city %></div>
 		  <div class="col-12 col-sm-8">Адрес: <%- data.address %></div>
@@ -37,6 +38,12 @@
 		  <div class="col-8 col-xs-12 col-sm-8">Адрес: <%= data.contacts.address %></div>
 		</div>
 	  </div>
+	  <div class="col-sm-12 block-description">
+	      Примечания:
+	      <div class="row">
+	          <textarea disabled><%= data.descr %></textarea>
+	      </div>
+	  </div>    
 	</div>
 </div>
 

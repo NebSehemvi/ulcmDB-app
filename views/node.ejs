@@ -1,39 +1,39 @@
 <% include partials/header %>
 
 <div class="container">
-<header class="jumbotron">
-    <div class="container">
-    <h1>Узлы компании ЮЛ-ком</h1>
-        <a class="btn btn-primary btn-lg" href="/nodes/new">Добавить новый узел</a>
-    </div>
-</header>
-
+<div class="jumbotron" style="padding: 24px 56px">   
+    <h2>Узлы компании ЮЛ-ком</h2>
+    <a class="btn btn-primary btn-lg" href="/nodes/new">Добавить узел</a>
+</div>
 <% data.forEach(function(item){ %>
 <div class="cont">
 	<div class="row show-grid">
 	  <div class="col-sm-12 block-main">
 		Узел: <%- item.name %>
-		<a class="btn-noclass" style="right: 190px;" href="/details/<%= item.node_id %>"><span class="glyphicon glyphicon-minus-sign"></span></a>
-		<a class="btn-noclass" style="right: 100px;" href="/edit/<%= item.node_id %>"><span class="glyphicon glyphicon-pencil"></span> Изменить</a>
-		<form action="/delete/<%= item.node_id %>" method="POST"><button style="right: 10px;" class="btn-noclass"><span class=" glyphicon glyphicon-remove"></span> Удалить</button></form>
+		<a class="btn-noclass" style="right: 160px;" href="/details/<%= item.node_id %>"><span class="glyphicon glyphicon-minus-sign"></span></a>
+		<a class="btn-noclass" style="right: 100px;" href="/edit/<%= item.node_id %>"><span class="glyphicon glyphicon-pencil"></span> Изм.</a>
+		<form action="/delete/<%= item.node_id %>" method="POST"><button style="right: 10px;" class="btn-noclass"><span class=" glyphicon glyphicon-trash"></span> Удалить</button></form>
 		<div class="row">
-		  <div class="col-12 col-sm-4">Город: <%- item.city %></div>
-		  <div class="col-12 col-sm-8">Адрес: <%- item.address %></div>
-		  <div class="col-12 col-sm-4">Дата вкл.: <%- item.date %></div>
+		  <div class="col-12 col-sm-4 cln">Город: <%= item.city %></div>
+		  <div class="col-12 col-sm-8 cln">Адрес: <%= item.address %></div>
+		  <div class="col-12 col-sm-4 cln">Дата вкл.: <%= item.date %></div>
 		</div>
 	  </div>
 	  <div class="col-sm-12 block-details hid">
 		Оборудование:
 		<div class="row">
-		  <div class="col-12 col-sm-6">IP: <%- item.equip.ip %></div>
+		    <div class="col-12 col-sm-6 cln">IP: <%= item.equip.ip %></div>
+		    <div class="col-12 col-sm-6 cln">Наименование: <%= item.equip.name%></div>
 		</div>
 		<div class="row">
-		  <div class="col-6 col-xs-6">GW: <%- item.equip.gw %></div>
-		  <div class="col-6 col-xs-6">DNS1: <%- item.equip.dns1 %></div>
-		  <div class="col-6 col-xs-6">Mask: <%- item.equip.mask %></div>
-		  <div class="col-6 col-xs-6">DNS2: <%- item.equip.dns2 %></div>
+		  <div class="col-6 col-xs-6 cln">GW: <%= item.equip.gw %></div>
+		  <div class="col-6 col-xs-6 cln">DNS1: <%= item.equip.dns1 %></div>
+		  <div class="col-6 col-xs-6 cln">Mask: <%= item.equip.mask %></div>
+		  <div class="col-6 col-xs-6 cln">DNS2: <%= item.equip.dns2 %></div>
 		</div>
-	  </div>
+	    Примечания:
+	    <div class="row cln"><textarea disabled><%= item.descr %></textarea></div>
+	  </div>    
 	</div>
 </div>
 <% }); %>
@@ -46,6 +46,10 @@
     var details = $(".block-details");
     var main = $(".block-main");
     var btnTxt = $(".text");
+    
+    $(".cln").on("click", function(event){
+        event.stopPropagation();
+    });
     
     $("a").on("click", function(event){
         event.stopPropagation();

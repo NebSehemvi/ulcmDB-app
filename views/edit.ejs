@@ -1,6 +1,7 @@
 <% include partials/header %>
 <div class="container">
     <div class="row">
+        <a href="/nodes">&#8592; Назад к списку узлов</a>
         <h2 style="text-align:center;">Редактировать узел <%= data.name %></h2>
         <form action="/edit/<%= data.node_id %>" method="POST">
         <div class="cont">
@@ -8,34 +9,41 @@
         	  <div class="col-sm-12 block-main">
         		Узел: <input type="text" name="name" placeholder="название узла" required value="<%- data.name %>">
         		<div class="row">
-		          <div class="col-12 col-sm-4">Город: <input type="text" name="city" required value="<%= data.city %> "></div>
-        		  <div class="col-12 col-sm-8">Адрес: <input type="text" name="address" required value="<%= data.address %> "></div>
-        		  <div class="col-12 col-sm-4">Дата вкл.: <input type="text" name="date" required value="<%= data.date %> "></div>
+		          <div class="col-12 col-sm-4">Город: <input type="text" name="city" required value="<%= data.city %>"></div>
+        		  <div class="col-12 col-sm-8">Адрес: <input type="text" name="address" required value="<%= data.address %>"></div>
+        		  <div class="col-12 col-sm-4">Дата вкл.: <input type="date" name="date" value="<%= data.date %>"></div>
         		</div>
         	  </div>
         	  <div class="col-sm-12 block-details">
         		Оборудование:
         		<div class="row">
-        		  <div class="col-12 col-sm-6">IP: <input style="width: calc(100% - 5em);" type="text" name="ip" value="<%= data.equip.ip %> "></div>
+        		  <div class="col-12 col-sm-6">IP: <input type="text" name="ip" value="<%= data.equip.ip %>"></div>
+        		  <div class="col-12 col-sm-6">Имя: <input type="text" name="eq_name" value="<%= data.equip.name %>"></div>
         		</div>
         		<div class="row">
-        		  <div class="col-6 col-xs-6">GW: <input type="text" name="gw" value="<%= data.equip.gw %> "></div>
-        		  <div class="col-6 col-xs-6">DNS1: <input type="text" name="dns1" value="<%= data.equip.dns1 %> "></div>
-        		  <div class="col-6 col-xs-6">Mask: <input type="text" name="mask" value="<%= data.equip.mask %> "></div>
-        		  <div class="col-6 col-xs-6">DNS2: <input type="text" name="dns2" value="<%= data.equip.dns2 %> "></div>
+        		  <div class="col-6 col-xs-6">GW: <input type="text" name="gw" value="<%= data.equip.gw %>"></div>
+        		  <div class="col-6 col-xs-6">DNS1: <input type="text" name="dns1" value="<%= data.equip.dns1 %>"></div>
+        		  <div class="col-6 col-xs-6">Mask: <input type="text" name="mask" value="<%= data.equip.mask %>"></div>
+        		  <div class="col-6 col-xs-6">DNS2: <input type="text" name="dns2" value="<%= data.equip.dns2 %>"></div>
         		</div>
         	  </div>
         	  <div class="col-sm-12 block-contact">
         		Контактное лицо:
         		<div class="row">
-        		  <div class="col-8 col-xs-12 col-sm-8">ФИО: <input type="text" name="full_name" value="<%= data.contacts.full_name %> "></div>
-        		  <div class="col-4 col-xs-6 col-sm-4">Телефон: <input type="text" name="t_number" value="<%= data.contacts.t_number %> "></div>
-        		  <div class="col-6 col-xs-6">Компания: <input type="text" name="company" value="<%= data.contacts.company %> "></div>
-        		  <div class="col-6 col-xs-6">Должн.: <input type="text" name="position" value="<%= data.contacts.position %> "></div>
-        		  <div class="col-4 col-xs-6 col-sm-4">Город: <input type="text" name="cont_city" value="<%= data.contacts.city %> "></div>
-        		  <div class="col-8 col-xs-12 col-sm-8">Адрес: <input type="text" name="cont_address" value="<%= data.contacts.address %> "></div>
+        		  <div class="col-8 col-xs-12 col-sm-8">ФИО: <input type="text" name="full_name" value="<%= data.contacts.full_name %>"></div>
+        		  <div class="col-4 col-xs-6 col-sm-4">Телефон: <input type="text" name="t_number" value="<%= data.contacts.t_number %>"></div>
+        		  <div class="col-6 col-xs-6">Компания: <input type="text" name="company" value="<%= data.contacts.company %>"></div>
+        		  <div class="col-6 col-xs-6">Должн.: <input type="text" name="position" value="<%= data.contacts.position %>"></div>
+        		  <div class="col-4 col-xs-6 col-sm-4">Город: <input type="text" name="cont_city" value="<%= data.contacts.city %>"></div>
+        		  <div class="col-8 col-xs-12 col-sm-8">Адрес: <input type="text" name="cont_address" value="<%= data.contacts.address %>"></div>
         		</div>
         	  </div>
+    	      <div class="col-sm-12 block-description">
+	              Примечания:
+	               <div class="row">
+	                  <textarea name="descr"><%= data.descr %></textarea>
+	              </div>
+	          </div>    
         	</div>
         </div>
             <div class="form-group">
@@ -44,7 +52,7 @@
         </form>
         <form action="/delete/<%= data.node_id %>" method="POST">
             <div class="form-group">
-                <button class="dlt btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+                <button class="dlt btn btn-lg btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
             </div>
         </form>
         <a href="/nodes">&#8592; Назад к списку узлов</a>
